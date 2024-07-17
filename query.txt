@@ -1,0 +1,25 @@
+CREATE TABLE User (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    cognome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    ruolo ENUM('docente', 'admin', 'user') NOT NULL,
+    saldo DECIMAL(10, 2) DEFAULT 0.00,
+    codice_invito VARCHAR(255),
+    codice_invito_usato VARCHAR(255),
+    primo_acquisto BOOLEAN DEFAULT FALSE
+);
+
+CREATE TABLE Materia (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE User_Materia (
+    user_id BIGINT NOT NULL,
+    materia_id BIGINT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES User(id),
+    FOREIGN KEY (materia_id) REFERENCES Materia(id),
+    PRIMARY KEY (user_id, materia_id)
+);
