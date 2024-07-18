@@ -1,0 +1,8 @@
+<!-- navbar.component.html -->
+<mat-toolbar color="primary">
+  <span>MyApp</span>
+  <span class="spacer"></span>
+  <button *ngIf="!isAuthenticated()" mat-button [routerLink]="['/login']">Login</button>
+  <button *ngIf="!isAuthenticated()" mat-button [routerLink]="['/signup']">Sign Up</button>
+  <button *ngIf="isAuthenticated()" mat-button (click)="logout()">Logout</button>
+</mat-toolbar>

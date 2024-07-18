@@ -7,6 +7,7 @@ public class UserLoginResponseDTO {
 	private String token;
 	private Date ttl;
 	private Date tct;
+	private int id;
 	
 	public String getToken() {
 		return token;
@@ -25,5 +26,11 @@ public class UserLoginResponseDTO {
 	}
 	public void setTct(Date creation) {
 		this.tct = creation;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 }

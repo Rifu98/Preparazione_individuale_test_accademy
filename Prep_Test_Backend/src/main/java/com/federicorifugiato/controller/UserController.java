@@ -27,6 +27,13 @@ public class UserController {
     }
 
     @GET
+    @Path("/email/{email}")
+    public Response findByEmail(@PathParam("email") String email) {
+        UserDTO userDTO = userService.findByEmail(email);
+        return Response.ok(userDTO).build();
+    }
+
+    @GET
     public Response findAll() {
         List<UserDTO> users = userService.findAll();
         return Response.ok(users).build();

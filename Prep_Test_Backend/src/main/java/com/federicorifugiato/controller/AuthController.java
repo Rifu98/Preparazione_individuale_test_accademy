@@ -78,6 +78,7 @@ public class AuthController {
 	      token.setToken(tokenJwts);
 	      token.setTct(creation);
 	      token.setTtl(end);
+	      token.setId(informazioniUtente.getId());
 	      
 	      return token;
 		
