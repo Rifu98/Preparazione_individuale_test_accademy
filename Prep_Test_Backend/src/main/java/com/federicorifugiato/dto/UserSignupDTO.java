@@ -1,26 +1,27 @@
 package com.federicorifugiato.dto;
 
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 
 public class UserSignupDTO {
 
-    @NotEmpty
+    @NotBlank(message = "Il nome è obbligatorio")
     private String nome;
 
-    @NotEmpty
+    @NotBlank(message = "Il nome è obbligatorio")
     private String cognome;
 
-    @NotEmpty
-    @Email
+    @NotBlank(message = "Il nome è obbligatorio")
+    @Email(message = "formato mail non valido")
     private String email;
 
-    @NotEmpty
-    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$")
+    @NotBlank(message = "Il nome è obbligatorio")
+    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$",
+    		message = "password debole")
     private String password;
 
-    private String codiceInvito;
+    private String codiceInvitoUsato;
 
 	public String getNome() {
 		return nome;
@@ -54,13 +55,11 @@ public class UserSignupDTO {
 		this.password = password;
 	}
 
-	public String getCodiceInvito() {
-		return codiceInvito;
+	public String getCodiceInvitoUsato() {
+		return codiceInvitoUsato;
 	}
 
-	public void setCodiceInvito(String codiceInvito) {
-		this.codiceInvito = codiceInvito;
+	public void setCodiceInvitoUsato(String codiceInvitoUsato) {
+		this.codiceInvitoUsato = codiceInvitoUsato;
 	}
-
-    // Getters and setters
 }
